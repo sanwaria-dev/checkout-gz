@@ -622,7 +622,7 @@ function PrescriptionForm() {
             <Text>Quantity: {line.quantity}</Text>
             <Text>Pet: {petDisplay}</Text>
             <Text>Vet Clinic: {vetDisplay}</Text>
-            <Text>Approval Method: AnimalWiz Contacts Vet</Text>
+            <Text>Approval Method: We Contact Vet</Text>
             <Button onPress={() => startEditing(line)}>Edit Details</Button>
           </BlockStack>
         );
