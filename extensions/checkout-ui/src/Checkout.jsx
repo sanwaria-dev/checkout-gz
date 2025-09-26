@@ -630,3 +630,21 @@ function PrescriptionForm() {
     </BlockStack>
   );
 }
+// Add this to your existing Checkout.jsx
+import { useCartLines } from '@shopify/ui-extensions-react/checkout';
+
+// Inside your component:
+const cartLines = useCartLines();
+const [showForm, setShowForm] = useState(false);
+
+useEffect(() => {
+  const hasPharmacy = cartLines.some(line => 
+    line.merchandise?.product?.collections?.some(
+      collection => collection.id === '282698809415'
+    )
+  );
+  setShowForm(hasPharmacy);
+}, [cartLines]);
+
+// Then wrap your form:
+return showForm ? <YourExistingForm /> : null;
